@@ -1,0 +1,31 @@
+[package]
+name = "claude-token-provider"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.88.0"
+
+[dependencies]
+# Cryptography
+aes-gcm = "0.10"
+
+# JSON manipulation
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Base64 encoding/decoding
+base64 = "0.22"
+
+# Secure password input
+rpassword = "7.3"
+
+# Self-deletion functionality
+self-replace = "1.5"
+
+# Error handling
+thiserror = "1.0"
+
+# Optional utilities
+dirs = "5.0"  # For cross-platform home directory
+
+[dev-dependencies]
+tempfile = "3.8"  # For testing file operations
