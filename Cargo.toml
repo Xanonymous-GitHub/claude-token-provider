@@ -22,7 +22,7 @@ rpassword = "7.3"
 self-replace = "1.5"
 
 # Error handling
-thiserror = "1.0"
+thiserror = "2.0"
 
 # Optional utilities
 dirs = "5.0"  # For cross-platform home directory
