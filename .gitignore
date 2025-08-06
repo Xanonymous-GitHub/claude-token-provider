@@ -82,3 +82,7 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Credential files (test data)
+nonce.txt
+pass.txt
