@@ -7,8 +7,8 @@ use super::merger::deep_merge_json;
 use crate::{Result, TokenProviderError};
 
 /// Default configuration directory and file paths
-const CONFIG_DIR: &str = "test-claude-token-config-dir";
-const CONFIG_FILE: &str = "config.json";
+const CONFIG_DIR: &str = ".claude";
+const CONFIG_FILE: &str = "settings.json";
 
 /// Gets the target configuration file path
 pub fn get_config_path() -> Result<PathBuf> {
