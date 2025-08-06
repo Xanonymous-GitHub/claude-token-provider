@@ -1,28 +1,27 @@
 # Claude Token Provider
 
-A secure, self-deleting configuration management tool built in Rust for educational purposes, demonstrating advanced cryptographic concepts, memory-safe systems programming, and production-quality error handling.
+A secure, self-deleting configuration management tool built in Rust, demonstrating advanced cryptographic
+concepts, memory-safe systems programming, and production-quality error handling.
 
 ## ⚠️ **CRITICAL WARNING**
 
 **🔴 THIS APPLICATION WILL DELETE ITSELF AFTER EXECUTION 🔴**
 
-This is an intentional security feature that may trigger antivirus software and security systems. This tool is designed exclusively for educational purposes in controlled environments.
+This is an intentional security feature that may trigger antivirus software and security systems.
 
 **DO NOT USE ON PRODUCTION SYSTEMS OR IMPORTANT MACHINES**
 
-## 📚 Educational Objectives
-
-This project demonstrates advanced Rust concepts through a real-world security application:
-
 ### Core Technologies
+
 - **🔐 Cryptography**: AES-256-GCM authenticated encryption with proper key validation
-- **🛡️ Error Handling**: Custom error types with comprehensive propagation using `thiserror`  
+- **🛡️ Error Handling**: Custom error types with comprehensive propagation using `thiserror`
 - **🧠 Memory Safety**: Safe handling of cryptographic material and sensitive data
 - **📋 JSON Processing**: Complex data manipulation with serde and deep merging algorithms
 - **⚙️ Systems Programming**: File I/O, cross-platform path handling, and executable self-modification
 - **🧪 Testing**: Comprehensive unit, integration, and security testing strategies
 
 ### Software Engineering Principles
+
 - **Modular Architecture**: Clean separation of concerns across domain-specific modules
 - **Functional Programming**: Immutability by default, iterator patterns, and Result/Option usage
 - **Production Quality**: Professional-grade error messages, input validation, and user experience
@@ -50,6 +49,7 @@ src/
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Rust 1.88.0 or later
 - Isolated testing environment (VM or container recommended)
 - Basic understanding of cryptographic principles
@@ -68,7 +68,7 @@ cargo build --release
 
 ### Demo Credentials
 
-For educational testing, use these demo credentials when prompted:
+For testing, use these demo credentials when prompted:
 
 - **Secret Key**: `AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=`
 - **IV/Nonce**: `AAAAAAAAAAAAAAAA`
@@ -80,11 +80,12 @@ For educational testing, use these demo credentials when prompted:
 The application follows a secure 4-step process:
 
 1. **🔐 Credential Collection**: Securely prompt for AES-256-GCM key and nonce
-2. **🔓 Decryption**: Decrypt hardcoded configuration using authenticated encryption  
+2. **🔓 Decryption**: Decrypt hardcoded configuration using authenticated encryption
 3. **📋 Configuration Merge**: Deep merge with existing config at `~/.config/my_app/config.json`
 4. **🗑️ Self-Deletion**: Remove executable to prevent unauthorized reuse
 
 ### What It Does
+
 - Decrypts embedded configuration data using AES-256-GCM
 - Creates configuration directory if it doesn't exist
 - Performs intelligent deep merge with existing configuration
@@ -95,23 +96,27 @@ The application follows a secure 4-step process:
 ## 🛡️ Security Features
 
 ### Cryptographic Security
+
 - **AES-256-GCM**: NIST-approved authenticated encryption
 - **256-bit Keys**: Exceeds current security recommendations
 - **Authentication**: Prevents tampering and ensures data integrity
 - **Input Validation**: Comprehensive Base64 and length validation
 
 ### Memory Safety
+
 - **Rust Ownership**: Prevents buffer overflows and memory corruption
 - **No Use-After-Free**: Borrow checker eliminates entire vulnerability classes
 - **RAII**: Automatic resource cleanup prevents leaks
 
 ### Operational Security
+
 - **Self-Deletion**: Prevents executable reuse and reduces attack surface
 - **Secure Input**: Password-style input prevents credential display
 - **Error Handling**: No information leakage through error messages
 - **Fail-Safe Defaults**: Secure behavior when operations fail
 
 ### Input Security
+
 - **Format Validation**: Base64 character validation before decoding
 - **Length Enforcement**: Exact key (32 bytes) and nonce (12 bytes) requirements
 - **Error Recovery**: User-friendly retry mechanism for invalid inputs
@@ -119,6 +124,7 @@ The application follows a secure 4-step process:
 ## 🧪 Development Commands
 
 ### Building and Testing
+
 ```bash
 # Development build with debug info
 cargo build
@@ -140,6 +146,7 @@ cargo test --test integration_test
 ```
 
 ### Code Quality
+
 ```bash
 # Format code to Rust standards
 cargo fmt
@@ -155,6 +162,7 @@ cargo doc --open
 ```
 
 ### Analysis and Debugging
+
 ```bash
 # Run with backtraces for debugging
 RUST_BACKTRACE=1 cargo run
@@ -172,6 +180,7 @@ cargo audit
 ## 📊 Configuration Details
 
 ### Default Configuration Structure
+
 ```json
 {
   "config_version": 2,
@@ -186,38 +195,45 @@ cargo audit
 ```
 
 ### Deep Merge Behavior
+
 - **Objects**: Recursively merged, new keys added, existing keys updated
 - **Arrays**: Completely replaced (no element-wise merging)
 - **Primitives**: Replaced with new values
 - **Null Values**: Explicit null overwrites existing values
 
 ### File Locations
+
 - **Config Directory**: `~/.config/my_app/` (cross-platform)
 - **Config File**: `config.json` (pretty-printed JSON)
 - **Backup**: Corrupted files are automatically replaced
 
 ## ⚠️ Security Limitations & Considerations
 
-### Intentional Limitations (Educational Focus)
-- **Demo Keys**: Uses zero-byte keys for reproducible educational examples
-- **Key Management**: No secure key derivation or generation mechanisms  
+### Intentional Limitations
+
+- **Demo Keys**: Uses zero-byte keys for reproducible examples
+- **Key Management**: No secure key derivation or generation mechanisms
 - **Nonce Reuse**: No uniqueness verification (single-use tool design mitigates this)
 - **Memory Clearing**: Sensitive data not explicitly zeroed from memory
 
 ### Platform Considerations
+
 - **Linux/macOS**: Self-deletion generally succeeds
 - **Windows**: May be blocked by file locks or antivirus software
 - **Antivirus**: Self-deletion triggers may cause false positives
 - **Permissions**: Requires write access to home directory
 
 ### Threat Model
+
 **✅ Protects Against:**
+
 - Configuration data confidentiality (encryption at rest)
 - Data tampering (authenticated encryption)
 - Casual executable reuse (self-deletion)
 - Configuration corruption (validation and graceful recovery)
 
 **❌ Does NOT Protect Against:**
+
 - Memory dumps or debugging (decrypted data exists in memory)
 - Side-channel attacks (no constant-time operations)
 - Key compromise (relies on user-provided keys)
@@ -228,6 +244,7 @@ cargo audit
 By studying and running this project, you'll gain hands-on experience with:
 
 ### Rust Programming
+
 - Advanced error handling patterns with custom error types
 - Memory-safe cryptographic programming
 - Functional programming techniques (iterators, combinators)
@@ -235,54 +252,43 @@ By studying and running this project, you'll gain hands-on experience with:
 - Testing strategies for systems programming
 
 ### Cryptographic Engineering
+
 - Authenticated encryption (AEAD) implementation patterns
 - Secure input validation and sanitization
 - Key material handling best practices
 - Cryptographic error handling without information leakage
 
-### Systems Programming  
+### Systems Programming
+
 - Cross-platform file system operations
 - Process self-modification techniques
 - Resource management with RAII
 - Platform-specific behavior handling
 
 ### Software Engineering
+
 - Production-quality error messages and user experience
 - Comprehensive testing strategies (unit, integration, security)
 - Documentation-driven development
 - Security-conscious software design
 
-## 🚨 Safety Guidelines
-
-### ✅ Safe Educational Use
-- Run in isolated virtual machines or containers
-- Test with non-sensitive, dummy configuration data
-- Study the cryptographic implementations and error handling
-- Experiment with different input scenarios and edge cases
-- Analyze the modular architecture and design patterns
-
-### ❌ Unsafe Practices  
-- Never run on production systems or important machines
-- Don't use with real sensitive data or production keys
-- Don't bypass or disable security features for testing
-- Don't use as a template for production security implementations
-- Don't run on systems containing important data
-
 ## 🔧 Customization for Learning
 
 ### Extending Cryptographic Features
+
 ```rust
-// Example: Add key derivation (for educational exploration)
+// Example: Add key derivation
 use argon2::Argon2;
 
 fn derive_key_from_password(password: &str, salt: &[u8]) -> [u8; 32] {
-    // Implementation for educational purposes
+    // Implementation
 }
 ```
 
 ### Adding Security Measures
+
 ```rust
-// Example: Memory zeroing (educational enhancement)
+// Example: Memory zeroing
 use zeroize::Zeroize;
 
 fn secure_decrypt(ciphertext: &[u8], key: &mut [u8; 32]) -> Result<Vec<u8>> {
@@ -292,26 +298,8 @@ fn secure_decrypt(ciphertext: &[u8], key: &mut [u8; 32]) -> Result<Vec<u8>> {
 }
 ```
 
-## 🤝 Contributing
-
-This is an educational project designed for learning. Contributions should focus on:
-- Educational value and clarity
-- Security best practices demonstration  
-- Code quality and documentation
-- Additional test cases and scenarios
-
 ## 📄 License
 
 MIT License - See LICENSE file for details.
 
 ---
-
-## 🎓 Educational Use Only
-
-**This software is designed exclusively for educational purposes.** It demonstrates secure coding practices, advanced Rust programming techniques, and cryptographic implementation patterns in a controlled learning environment.
-
-**This is not production software.** Do not use in production environments, with sensitive data, or as a template for production security implementations without extensive additional security measures and professional security review.
-
----
-
-*"The best way to learn secure programming is to understand both what works and what doesn't, in a safe environment where mistakes are learning opportunities rather than security incidents."*
