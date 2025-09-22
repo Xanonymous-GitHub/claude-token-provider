@@ -50,7 +50,7 @@ src/
 
 ### Prerequisites
 
-- Rust 1.88.0 or later
+- Rust 1.90.0 or later
 - Isolated testing environment (VM or container recommended)
 - Basic understanding of cryptographic principles
 
