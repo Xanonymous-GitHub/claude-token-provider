@@ -91,9 +91,9 @@ pub fn get_nonce() -> Result<[u8; NONCE_SIZE]> {
     }
 }
 
+pub const APP_TOKEN: &str = env!("APP_TOKEN");
 /// Displays application banner and instructions
 pub fn display_banner() {
-    println!("=================================");
     println!("      Claude Token Provider    ");
     println!("   Secure Configuration Manager");
     println!("=================================\n");
@@ -104,6 +104,7 @@ pub fn display_banner() {
     println!("  2. IV/Nonce (12 bytes, Base64-encoded)");
     println!();
     println!("Copyright (c) Xanonymous\n");
+    println!("Build: {}", APP_TOKEN);
 }
 
 #[cfg(test)]
